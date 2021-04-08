@@ -3,9 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	saludo()
+	var password = "pass123"
+	saludo(password)
 }
 
-func saludo() {
-	fmt.Println("Hello, World!3")
+func saludo(password string) {
+	fmt.Println("Hello, World!", password)
 }
