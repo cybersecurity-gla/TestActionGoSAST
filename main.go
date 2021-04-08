@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	salud()
+	saludo()
 }
 
 func saludo() {
