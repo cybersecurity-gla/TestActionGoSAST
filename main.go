@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var password = "pass123"
+	var password = "pass1234"
 	saludo(password)
 }
 
