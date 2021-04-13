@@ -2,25 +2,36 @@ package main
 
 import (
     "fmt"
-    "database/sql"
-    _ "github.com/go-sql-driver/mysql"
+    "math/rand"
+    "time"
 )
 
 func main() {
-    fmt.Println("Go MySQL Tutorial")
 
-    // Open up our database connection.
-    // I've set up a database on my local machine using phpmyadmin.
-    // The database is called testDb
-    db, err := sql.Open("mysql", "username:password@tcp(127.0.0.1:3306)/test")
+    fmt.Print(rand.Intn(100), ",")
+    fmt.Print(rand.Intn(100))
+    fmt.Println()
 
-    // if there is an error opening the connection, handle it
-    if err != nil {
-        panic(err.Error())
-    }
+    fmt.Println(rand.Float64())
 
-    // defer the close till after the main function has finished
-    // executing
-    defer db.Close()
+    fmt.Print((rand.Float64()*5)+5, ",")
+    fmt.Print((rand.Float64() * 5) + 5)
+    fmt.Println()
 
+    s1 := rand.NewSource(time.Now().UnixNano())
+    r1 := rand.New(s1)
+
+    fmt.Print(r1.Intn(100), ",")
+    fmt.Print(r1.Intn(100))
+    fmt.Println()
+
+    s2 := rand.NewSource(42)
+    r2 := rand.New(s2)
+    fmt.Print(r2.Intn(100), ",")
+    fmt.Print(r2.Intn(100))
+    fmt.Println()
+    s3 := rand.NewSource(42)
+    r3 := rand.New(s3)
+    fmt.Print(r3.Intn(100), ",")
+    fmt.Print(r3.Intn(100))
 }
