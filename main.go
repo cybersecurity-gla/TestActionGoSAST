@@ -1,12 +1,26 @@
 package main
 
-import "fmt"
+import (
+    "fmt"
+    "database/sql"
+    _ "github.com/go-sql-driver/mysql"
+)
 
 func main() {
-	var password = "pass12345"
-	saludo(password)
-}
+    fmt.Println("Go MySQL Tutorial")
 
-func saludo(password string) {
-	fmt.Println("Hello, World!", password)
+    // Open up our database connection.
+    // I've set up a database on my local machine using phpmyadmin.
+    // The database is called testDb
+    db, err := sql.Open("mysql", "username:password@tcp(127.0.0.1:3306)/test")
+
+    // if there is an error opening the connection, handle it
+    if err != nil {
+        panic(err.Error())
+    }
+
+    // defer the close till after the main function has finished
+    // executing
+    defer db.Close()
+
 }
